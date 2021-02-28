@@ -118,7 +118,8 @@ class _ChatListItemState extends State<ChatListItem>
                       left: posListItem,
                       child: GestureDetector(
                         onTap: () {
-                          state.changeOpenChatDetail();
+                          if (!state.openEditChats)
+                            state.changeOpenChatDetail();
                         },
                         onHorizontalDragUpdate: (DragUpdateDetails details) {
                           _controller.value -=

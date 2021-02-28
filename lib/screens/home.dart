@@ -40,12 +40,6 @@ class _HomeState extends State<Home> {
                   left: 0,
                   child: ChatDetail(),
                 ),
-                state.openEditChats
-                    ? EditChats()
-                    : appBar(context, state: state, onTap: () {
-                        state.changeOpenEditChats();
-                        print("object");
-                      }),
                 state.openChatDetail
                     ? writeMessageActions(s)
                     : bottomBar(
@@ -61,6 +55,26 @@ class _HomeState extends State<Home> {
                     state: state,
                   ),
                 ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 240),
+                  top: state.openContactInfo ? 0 : s.height,
+                  // top: 0,
+                  left: 0,
+                  child: ContactInfo(),
+                ),
+                state.openEditChats
+                    ? EditChats()
+                    : appBar(
+                        context,
+                        state: state,
+                        openEditContact: () {
+                          pushToPage(context, EditContact());
+                        },
+                        onTap: () {
+                          state.changeOpenEditChats();
+                          print("object");
+                        },
+                      ),
               ],
             ),
           );

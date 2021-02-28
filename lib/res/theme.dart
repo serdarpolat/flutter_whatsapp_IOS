@@ -15,11 +15,16 @@ Color textGrey = Color(0xFF8e8e93);
 Color iconGrey = Color(0xFFc6c6cc);
 Color barGrey = Color(0xFFF6F6F6);
 Color barShadowGrey = Color(0xFFA6A6AA);
+Color grayBg = Color(0xFFEDEDFF);
 Color accentColor = Color(0xFFA007AFF);
 Color green = Color(0xFF60BB58);
+Color darkGreen = Color(0xFF1FC434);
 Color lightGreen = Color(0xffDCF7C5);
+Color pink = Color(0xffEC72D7);
 Color blueGray = Color(0xFF3E70A7);
 Color primary = Color(0xFFff3b30);
+Color orangeAccent = Color(0xFFfbb500);
+Color orange = Color(0xFFFE8D35);
 
 //* Text Styles
 TextStyle reg20({Color color}) => TextStyle(
@@ -46,6 +51,16 @@ TextStyle reg12({Color color}) => TextStyle(
       color: color,
       fontSize: hh(12),
       fontWeight: FontWeight.w400,
+    );
+TextStyle reg11({Color color}) => TextStyle(
+      color: color,
+      fontSize: hh(11),
+      fontWeight: FontWeight.w400,
+    );
+TextStyle med18({Color color}) => TextStyle(
+      color: color,
+      fontSize: hh(18),
+      fontWeight: FontWeight.w500,
     );
 TextStyle med10({Color color}) => TextStyle(
       color: color,

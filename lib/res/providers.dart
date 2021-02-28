@@ -32,4 +32,12 @@ class PageStates extends ChangeNotifier {
     _openChatMore = !_openChatMore;
     notifyListeners();
   }
+
+  bool _openContactInfo = false;
+  bool get openContactInfo => _openContactInfo;
+
+  changeOpenContactInfo() {
+    _openContactInfo = !_openContactInfo;
+    notifyListeners();
+  }
 }
