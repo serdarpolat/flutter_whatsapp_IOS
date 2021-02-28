@@ -48,7 +48,11 @@ List<BottomItemModel> bottomItems = [
   ),
 ];
 
-Widget bottomBar(Size s, {PageStates state, PageController pageCtrl}) => Align(
+Widget bottomBar(Size s,
+        {PageStates pageState,
+        ChatStates chatState,
+        PageController pageCtrl}) =>
+    Align(
       alignment: Alignment.bottomCenter,
       child: Container(
         width: s.width,
@@ -64,7 +68,7 @@ Widget bottomBar(Size s, {PageStates state, PageController pageCtrl}) => Align(
         ),
         padding: EdgeInsets.only(bottom: hh(13)),
         child: Container(
-          child: state.openEditChats
+          child: chatState.openEditChats
               ? padding(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,9 +96,9 @@ Widget bottomBar(Size s, {PageStates state, PageController pageCtrl}) => Align(
                       return bottomButton(
                         s,
                         item: item,
-                        isActive: item.idx == state.page,
+                        isActive: item.idx == pageState.page,
                         ontap: () {
-                          state.changePage(item.idx);
+                          pageState.changePage(item.idx);
                           pageCtrl.animateToPage(
                             item.idx,
                             curve: Curves.easeInOut,

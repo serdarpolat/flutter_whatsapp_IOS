@@ -46,7 +46,7 @@ class _ChatListItemState extends State<ChatListItem>
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
-    return Consumer<PageStates>(
+    return Consumer<ChatStates>(
       builder: (BuildContext context, state, Widget child) {
         return AnimatedBuilder(
             animation: _controller,
@@ -209,7 +209,7 @@ Widget chatDetail(Size s,
         String icon,
         String message,
         Color iconColor,
-        PageStates state}) =>
+        ChatStates state}) =>
     Expanded(
       child: Container(
         decoration: BoxDecoration(

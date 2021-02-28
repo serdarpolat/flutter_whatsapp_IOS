@@ -7,7 +7,7 @@ class Chats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
-    return Consumer<PageStates>(
+    return Consumer<ChatStates>(
       builder: (context, state, child) {
         return SingleChildScrollView(
           physics: BouncingScrollPhysics(),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/res/index.dart';
 
 class ActionSheets extends StatelessWidget {
-  final PageStates state;
+  final ChatStates state;
 
   const ActionSheets({Key key, this.state}) : super(key: key);
   @override

@@ -8,7 +8,9 @@ class PageStates extends ChangeNotifier {
     _page = page;
     notifyListeners();
   }
+}
 
+class ChatStates extends ChangeNotifier {
   bool _openEditChats = false;
   bool get openEditChats => _openEditChats;
 
@@ -38,6 +40,25 @@ class PageStates extends ChangeNotifier {
 
   changeOpenContactInfo() {
     _openContactInfo = !_openContactInfo;
+    notifyListeners();
+  }
+}
+
+class CallStates extends ChangeNotifier {
+  int _page = 0;
+
+  int get page => _page;
+
+  changePage(int p) {
+    _page = p;
+    notifyListeners();
+  }
+
+  bool _isEditing = false;
+  bool get isEditing => _isEditing;
+
+  changeEditStatus() {
+    _isEditing = !_isEditing;
     notifyListeners();
   }
 }

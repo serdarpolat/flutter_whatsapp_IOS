@@ -22,8 +22,9 @@ class _HomeState extends State<Home> {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: white,
-      body: Consumer<PageStates>(
-        builder: (BuildContext context, state, Widget child) {
+      body: Consumer3<PageStates, ChatStates, CallStates>(
+        builder: (BuildContext context, PageStates pageState,
+            ChatStates chatState, CallStates callState, Widget child) {
           return Container(
             width: s.width,
             height: s.height,
@@ -36,43 +37,48 @@ class _HomeState extends State<Home> {
                 ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 120),
-                  top: state.openChatDetail ? 0 : s.height,
+                  top: chatState.openChatDetail ? 0 : s.height,
                   left: 0,
                   child: ChatDetail(),
                 ),
-                state.openChatDetail
+                chatState.openChatDetail
                     ? writeMessageActions(s)
                     : bottomBar(
                         s,
-                        state: state,
+                        chatState: chatState,
+                        pageState: pageState,
                         pageCtrl: controller,
                       ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 240),
-                  top: state.openContactInfo ? 0 : s.height,
+                  top: chatState.openContactInfo ? 0 : s.height,
                   // top: 0,
                   left: 0,
                   child: ContactInfo(),
                 ),
-                state.openEditChats
+                chatState.openEditChats
                     ? EditChats()
-                    : appBar(
-                        context,
-                        state: state,
-                        openEditContact: () {
-                          pushToPage(context, EditContact());
-                        },
-                        onTap: () {
-                          state.changeOpenEditChats();
-                          print("object");
-                        },
-                      ),
+                    : pageState.page == 0
+                        ? statusAppbar(context, s)
+                        : pageState.page == 1
+                            ? callsAppbar(context, s, callState: callState)
+                            : appBar(
+                                context,
+                                state: chatState,
+                                openEditContact: () {
+                                  pushToPage(context, EditContact());
+                                },
+                                onTap: () {
+                                  chatState.changeOpenEditChats();
+                                  print("object");
+                                },
+                              ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 240),
-                  top: state.openChatMore ? 0 : s.height,
+                  top: chatState.openChatMore ? 0 : s.height,
                   left: 0,
                   child: ActionSheets(
-                    state: state,
+                    state: chatState,
                   ),
                 ),
               ],

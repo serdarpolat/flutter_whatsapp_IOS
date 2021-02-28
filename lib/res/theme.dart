@@ -16,7 +16,7 @@ Color iconGrey = Color(0xFFc6c6cc);
 Color barGrey = Color(0xFFF6F6F6);
 Color barShadowGrey = Color(0xFFA6A6AA);
 Color grayBg = Color(0xFFEDEDFF);
-Color accentColor = Color(0xFFA007AFF);
+Color accentColor = Color(0xFF007AFF);
 Color green = Color(0xFF60BB58);
 Color darkGreen = Color(0xFF1FC434);
 Color lightGreen = Color(0xffDCF7C5);
@@ -60,6 +60,11 @@ TextStyle reg11({Color color}) => TextStyle(
 TextStyle med18({Color color}) => TextStyle(
       color: color,
       fontSize: hh(18),
+      fontWeight: FontWeight.w500,
+    );
+TextStyle med13({Color color}) => TextStyle(
+      color: color,
+      fontSize: hh(13),
       fontWeight: FontWeight.w500,
     );
 TextStyle med10({Color color}) => TextStyle(

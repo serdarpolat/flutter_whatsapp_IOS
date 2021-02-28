@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:whatsapp_ui/res/index.dart';
 
 Widget appBar(BuildContext context,
-        {Function onTap, PageStates state, Function openEditContact}) =>
+        {Function onTap, ChatStates state, Function openEditContact}) =>
     Container(
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       width: MediaQuery.of(context).size.width,
