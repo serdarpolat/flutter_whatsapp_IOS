@@ -49,14 +49,6 @@ class _HomeState extends State<Home> {
                       ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 240),
-                  top: state.openChatMore ? 0 : s.height,
-                  left: 0,
-                  child: ActionSheets(
-                    state: state,
-                  ),
-                ),
-                AnimatedPositioned(
-                  duration: Duration(milliseconds: 240),
                   top: state.openContactInfo ? 0 : s.height,
                   // top: 0,
                   left: 0,
@@ -75,6 +67,14 @@ class _HomeState extends State<Home> {
                           print("object");
                         },
                       ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 240),
+                  top: state.openChatMore ? 0 : s.height,
+                  left: 0,
+                  child: ActionSheets(
+                    state: state,
+                  ),
+                ),
               ],
             ),
           );
