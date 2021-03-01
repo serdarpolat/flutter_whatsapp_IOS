@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PageStates()),
         ChangeNotifierProvider(create: (_) => ChatStates()),
         ChangeNotifierProvider(create: (_) => CallStates()),
+        ChangeNotifierProvider(create: (_) => SettingStates()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

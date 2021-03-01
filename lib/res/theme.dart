@@ -19,10 +19,13 @@ Color grayBg = Color(0xFFEDEDFF);
 Color accentColor = Color(0xFF007AFF);
 Color green = Color(0xFF60BB58);
 Color darkGreen = Color(0xFF1FC434);
+Color greenAccent = Color(0xFF07AD9F);
 Color lightGreen = Color(0xffDCF7C5);
 Color pink = Color(0xffEC72D7);
 Color blueGray = Color(0xFF3E70A7);
 Color primary = Color(0xFFff3b30);
+Color red = Color(0xFFFF3B2F);
+Color redAccent = Color(0xFFFF2C55);
 Color orangeAccent = Color(0xFFfbb500);
 Color orange = Color(0xFFFE8D35);
 

@@ -273,6 +273,7 @@ Widget infoItem(Size s, {InfoItemModel item, bool islast}) => Container(
                   img: "assets/icons/${item.img}.svg",
                   color: white,
                   width: ww(16),
+                  height: ww(16),
                 ),
               ),
               decoration: BoxDecoration(

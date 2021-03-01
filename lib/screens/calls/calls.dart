@@ -218,11 +218,16 @@ Widget callsAppbar(BuildContext context, Size s, {CallStates callState}) =>
             width: ww(343 - 167.0) / 2,
             padding: EdgeInsets.only(right: ww(13)),
             alignment: Alignment.centerRight,
-            child: svgImage(
-              img: "assets/icons/add_call.svg",
-              color: accentColor,
-              width: hh(24),
-            ),
+            child: callState.isEditing
+                ? Text(
+                    "Clear",
+                    style: reg17(color: accentColor),
+                  )
+                : svgImage(
+                    img: "assets/icons/add_call.svg",
+                    color: accentColor,
+                    width: hh(24),
+                  ),
           ),
         ],
       ),

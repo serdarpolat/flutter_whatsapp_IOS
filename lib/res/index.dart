@@ -17,8 +17,9 @@ export 'package:whatsapp_ui/screens/chats/chat_list_item.dart';
 export 'package:whatsapp_ui/screens/chats/chat_list_data.dart';
 export 'package:whatsapp_ui/screens/chats/edit_chats.dart';
 export 'package:whatsapp_ui/screens/chats/chat_detail.dart';
-export 'package:whatsapp_ui/screens/chats/action_sheets.dart';
+export 'package:whatsapp_ui/screens/chats/contact_action_sheets.dart';
 export 'package:whatsapp_ui/screens/chats/contact_info.dart';
 export 'package:whatsapp_ui/screens/chats/edit_contact.dart';
 
 export 'package:whatsapp_ui/screens/settings/settings.dart';
+export 'package:whatsapp_ui/screens/settings/setting_action_sheets.dart';

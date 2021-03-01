@@ -62,3 +62,13 @@ class CallStates extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class SettingStates extends ChangeNotifier {
+  bool _openSheets = false;
+  bool get openSheets => _openSheets;
+
+  changeOpenSheets() {
+    _openSheets = !_openSheets;
+    notifyListeners();
+  }
+}

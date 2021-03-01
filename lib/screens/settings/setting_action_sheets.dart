@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/res/index.dart';
 
-class ActionSheets extends StatelessWidget {
-  final ChatStates state;
+class SettingsActionSheets extends StatelessWidget {
+  final SettingStates state;
 
-  const ActionSheets({Key key, this.state}) : super(key: key);
+  const SettingsActionSheets({Key key, this.state}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size s = MediaQuery.of(context).size;
@@ -12,40 +12,40 @@ class ActionSheets extends StatelessWidget {
       duration: Duration(milliseconds: 240),
       width: s.width,
       height: s.height,
-      color: state.openChatMore ? black.withOpacity(0.4) : Colors.transparent,
+      color: state.openSheets ? black.withOpacity(0.4) : Colors.transparent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: List.generate(titles.length, (index) {
+        children: List.generate(settings.length, (index) {
           return GestureDetector(
             onTap: () {
-              if (index == 5) {
-                state.changeOpenChatMore();
+              if (index == 3) {
+                state.changeOpenSheets();
               }
             },
             child: Container(
               width: ww(355),
               height: hh(57),
               margin: EdgeInsets.only(
-                  bottom: index == 5
+                  bottom: index == 3
                       ? hh(28)
-                      : index == 4
+                      : index == 2
                           ? hh(8)
                           : 0),
               child: Center(
                 child: Text(
-                  titles[index],
-                  style: index == 5
+                  settings[index],
+                  style: index == 3
                       ? semi19(color: accentColor)
-                      : reg20(color: index == 4 ? primary : accentColor),
+                      : reg20(color: accentColor),
                 ),
               ),
               decoration: BoxDecoration(
                 color: white,
-                borderRadius: index == 5
+                borderRadius: index == 3
                     ? BorderRadius.circular(hh(15))
                     : index == 0
                         ? BorderRadius.vertical(top: Radius.circular(hh(15)))
-                        : index == 4
+                        : index == 2
                             ? BorderRadius.vertical(
                                 bottom: Radius.circular(hh(15)))
                             : BorderRadius.circular(0.0),
@@ -58,12 +58,10 @@ class ActionSheets extends StatelessWidget {
   }
 }
 
-List<String> titles = [
-  "Mute",
-  "Contact Info",
-  "Export Chat",
-  "Clear Chat",
-  "Delete Chat",
+List<String> settings = [
+  "Mail",
+  "Message",
+  "More",
   "Cancel",
 ];
 

@@ -22,9 +22,13 @@ class _HomeState extends State<Home> {
     Size s = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: white,
-      body: Consumer3<PageStates, ChatStates, CallStates>(
-        builder: (BuildContext context, PageStates pageState,
-            ChatStates chatState, CallStates callState, Widget child) {
+      body: Consumer4<PageStates, ChatStates, CallStates, SettingStates>(
+        builder: (BuildContext context,
+            PageStates pageState,
+            ChatStates chatState,
+            CallStates callState,
+            SettingStates settingStates,
+            Widget child) {
           return Container(
             width: s.width,
             height: s.height,
@@ -62,23 +66,44 @@ class _HomeState extends State<Home> {
                         ? statusAppbar(context, s)
                         : pageState.page == 1
                             ? callsAppbar(context, s, callState: callState)
-                            : appBar(
-                                context,
-                                state: chatState,
-                                openEditContact: () {
-                                  pushToPage(context, EditContact());
-                                },
-                                onTap: () {
-                                  chatState.changeOpenEditChats();
-                                  print("object");
-                                },
-                              ),
+                            : pageState.page == 3
+                                ? appBar(
+                                    context,
+                                    state: chatState,
+                                    openEditContact: () {
+                                      pushToPage(context, EditContact());
+                                    },
+                                    onTap: () {
+                                      chatState.changeOpenEditChats();
+                                      print("object");
+                                    },
+                                  )
+                                : Container(
+                                    width: s.width,
+                                    height: hh(88),
+                                    padding: EdgeInsets.only(
+                                        top:
+                                            MediaQuery.of(context).padding.top),
+                                    color: barGrey,
+                                    child: Center(
+                                      child: Text("Settings",
+                                          style: semi17(color: black)),
+                                    ),
+                                  ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 240),
                   top: chatState.openChatMore ? 0 : s.height,
                   left: 0,
-                  child: ActionSheets(
+                  child: ContactActionSheets(
                     state: chatState,
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 240),
+                  top: settingStates.openSheets ? 0 : s.height,
+                  left: 0,
+                  child: SettingsActionSheets(
+                    state: settingStates,
                   ),
                 ),
               ],
